@@ -55,6 +55,8 @@ class Movie(models.Model):
     country = models.CharField('Страна', max_length=30)
     directors = models.ManyToManyField(Actor, verbose_name='режисер',
                                        related_name='film_director')
+    actors = models.ManyToManyField(Actor, verbose_name='актеры',
+                                    related_name='film_actor' )
     genres = models.ManyToManyField(Genre, verbose_name='жанры')
     world_premiere = models.DateField('Примьера в мире', default=date.today)
     budget = models.PositiveIntegerField(
